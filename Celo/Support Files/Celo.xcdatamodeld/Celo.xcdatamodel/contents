@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Coordinates" representedClassName=".Coordinates" syncable="YES">
+        <attribute name="latitude" optional="YES" attributeType="String"/>
+        <attribute name="longitude" optional="YES" attributeType="String"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserLocation" inverseName="coordinates" inverseEntity="UserLocation"/>
+    </entity>
+    <entity name="LocationStreet" representedClassName=".LocationStreet" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserLocation" inverseName="street" inverseEntity="UserLocation"/>
+    </entity>
+    <entity name="LocationTimeZone" representedClassName=".LocationTimeZone" syncable="YES">
+        <attribute name="descriptionValue" optional="YES" attributeType="String"/>
+        <attribute name="offset" optional="YES" attributeType="String"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserLocation" inverseName="timezone" inverseEntity="UserLocation"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="cell" optional="YES" attributeType="String"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="nat" optional="YES" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <relationship name="dob" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserDate" inverseName="user" inverseEntity="UserDate"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserLocation" inverseName="user" inverseEntity="UserLocation"/>
+        <relationship name="name" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserName" inverseName="user" inverseEntity="UserName"/>
+        <relationship name="picture" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserPicture" inverseName="user" inverseEntity="UserPicture"/>
+    </entity>
+    <entity name="UserDate" representedClassName=".UserDate" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="dob" inverseEntity="User"/>
+    </entity>
+    <entity name="UserLocation" representedClassName=".UserLocation" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String"/>
+        <attribute name="country" optional="YES" attributeType="String"/>
+        <attribute name="state" optional="YES" attributeType="String"/>
+        <relationship name="coordinates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Coordinates" inverseName="location" inverseEntity="Coordinates"/>
+        <relationship name="street" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocationStreet" inverseName="location" inverseEntity="LocationStreet"/>
+        <relationship name="timezone" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocationTimeZone" inverseName="location" inverseEntity="LocationTimeZone"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="location" inverseEntity="User"/>
+    </entity>
+    <entity name="UserName" representedClassName=".UserName" syncable="YES">
+        <attribute name="first" optional="YES" attributeType="String"/>
+        <attribute name="last" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="name" inverseEntity="User"/>
+    </entity>
+    <entity name="UserPicture" representedClassName=".UserPicture" syncable="YES">
+        <attribute name="large" optional="YES" attributeType="String"/>
+        <attribute name="medium" optional="YES" attributeType="String"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="picture" inverseEntity="User"/>
+    </entity>
+    <elements>
+        <element name="Coordinates" positionX="103.39453125" positionY="-63.51171875" width="128" height="88"/>
+        <element name="LocationStreet" positionX="195.23046875" positionY="0.5390625" width="128" height="88"/>
+        <element name="LocationTimeZone" positionX="100.42578125" positionY="103.05078125" width="128" height="88"/>
+        <element name="User" positionX="-377.87109375" positionY="-72.18359375" width="128" height="178"/>
+        <element name="UserDate" positionX="-205.66015625" positionY="-78.01953125" width="128" height="73"/>
+        <element name="UserLocation" positionX="-38.7265625" positionY="-72.3203125" width="128" height="148"/>
+        <element name="UserName" positionX="-55.48046875" positionY="138.0625" width="128" height="103"/>
+        <element name="UserPicture" positionX="-200.98828125" positionY="197.91015625" width="128" height="103"/>
+    </elements>
+</model>
